@@ -683,3 +683,39 @@ img {
     height: 550px;
   }
 }
+
+
+/* Product Details  */
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  gap: 20px;
+}
+
+.detailsInfo h1{
+  text-align: center;
+  width: 40%;
+}
+
+.detailsInfo p{
+  text-align: center;
+  margin-bottom: 30px;
+  width: 70%;
+}
+
+.detailsButton{
+  align-self: flex-start;
+  margin-left: 5px;
+  margin-top: 5px;
+}

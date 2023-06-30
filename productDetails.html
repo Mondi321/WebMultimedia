@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="detailsContainer">
+        <div class="detailsButton">
+            <a class="btn" href="./index.html">Go Back</a>
+        </div>
+      <div class="detailsPhoto"></div>
+      <div class="detailsInfo">
+        <h1>The headphones of the future.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+          repudiandae rerum libero ipsum asperiores omnis mollitia, nostrum
+          commodi placeat ea itaque modi corrupti corporis nam voluptas aut
+          reprehenderit eaque culpa.
+        </p>
+      </div>
+    </div>
+    <footer class="section-footer py-4 bg-primary">
+      <div class="container">
+        <div>
+          <h2 class="text-2 mb-1">Lorem ipsum dolor sit.</h2>
+          <a href="http://twitter.com">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          </a>
+          <a href="http://facebook.com">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+          </a>
+          <a href="http://youtube.com">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div>
+          <h3>Company Info</h3>
+          <ul>
+            <li><a href="#">All Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Blog Posts</h3>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor.</a></li>
+            <li><a href="#">Lorem ipsum dolor.</a></li>
+            <li><a href="#">Lorem ipsum dolor.</a></li>
+            <li><a href="#">Lorem ipsum dolor.</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Subscribe</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <form
+            class="mt-1"
+            name="email-form"
+            method="POST"
+            data-netlify="true"
+          >
+            <div class="email-form">
+              <span class="form-control-wrap"
+                ><input
+                  type="email"
+                  name="email"
+                  id="email"
+                  size="40"
+                  class="form-control"
+                  placeholder="E-mail" /></span
+              ><button type="submit" value="Submit" class="form-control submit">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const app = new PIXI.Application({
+      antialias: true,
+      background: "#ffffff",
+    });
+
+    const detailsPhoto = document.querySelector(".detailsPhoto");
+
+    detailsPhoto.appendChild(app.view);
+
+    const stageHeight = app.screen.height;
+    const stageWidth = app.screen.width;
+
+    // Make sure stage covers the whole scene
+    app.stage.hitArea = app.screen;
+
+    // Make the slider
+    const sliderWidth = 320;
+    const slider = new PIXI.Graphics()
+      .beginFill(0x272d37)
+      .drawRect(0, 0, sliderWidth, 4);
+
+    slider.x = (stageWidth - sliderWidth) / 2;
+    slider.y = stageHeight * 0.75;
+
+    // Draw the handle
+    const handle = new PIXI.Graphics().beginFill(0xffffff).drawCircle(0, 0, 8);
+
+    handle.y = slider.height / 2;
+    handle.x = sliderWidth / 2;
+    handle.interactive = true;
+    handle.cursor = "pointer";
+
+    handle
+      .on("pointerdown", onDragStart)
+      .on("pointerup", onDragEnd)
+      .on("pointerupoutside", onDragEnd);
+
+    app.stage.addChild(slider);
+    slider.addChild(handle);
+
+    // Add bunny whose scale can be changed by user using slider
+    const bunny = app.stage.addChild(
+      PIXI.Sprite.from("https://i.ibb.co/37Y74kv/showcase.jpg")
+    );
+
+    bunny.texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+    bunny.scale.set(0.3);
+    bunny.anchor.set(0.5);
+    bunny.x = stageWidth / 2;
+    bunny.y = stageHeight / 2;
+
+    // Add title
+    const title = new PIXI.Text(
+      "Drag the handle to change the scale of headphones.",
+      {
+        fill: "#272d37",
+        fontFamily: "Catamaran",
+        fontSize: 20,
+        align: "center",
+      }
+    );
+
+    title.roundPixels = true;
+    title.x = stageWidth / 2;
+    title.y = 40;
+    title.anchor.set(0.5, 0);
+    app.stage.addChild(title);
+
+    // Listen to pointermove on stage once handle is pressed.
+    function onDragStart() {
+      app.stage.interactive = true;
+      app.stage.addEventListener("pointermove", onDrag);
+    }
+
+    // Stop dragging feedback once the handle is released.
+    function onDragEnd(e) {
+      app.stage.interactive = false;
+      app.stage.removeEventListener("pointermove", onDrag);
+    }
+
+    // Update the handle's position & bunny's scale when the handle is moved.
+    function onDrag(e) {
+      const halfHandleWidth = handle.width / 2;
+      // Set handle y-position to match pointer, clamped to (4, screen.height - 4).
+
+      handle.x = Math.max(
+        halfHandleWidth,
+        Math.min(slider.toLocal(e.global).x, sliderWidth - halfHandleWidth)
+      );
+      // Normalize handle position between -1 and 1.
+      const t = 2 * (handle.x / sliderWidth - 0.5);
+
+      bunny.scale.set(0.3 * (0.7 + t));
+    }
+  </script>
+  <script src="https://use.fontawesome.com/e7cb172c8c.js"></script>
+</html>
