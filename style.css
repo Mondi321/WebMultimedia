@@ -694,6 +694,10 @@ img {
   align-items: center;
 }
 
+.detailsInfoHeadphones canvas{
+  opacity: 0.2;
+}
+
 .detailsInfo{
   display: flex;
   flex-direction: column;
@@ -701,6 +705,8 @@ img {
   align-items: center;
   width: 70%;
   gap: 20px;
+  position: absolute;
+  top: 20%;
 }
 
 .detailsInfo h1{
@@ -719,3 +725,15 @@ img {
   margin-left: 5px;
   margin-top: 5px;
 }
+
+.detailsInfoHeadphones{
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
