@@ -1,0 +1,22 @@
+{"frames": {
+
+"frame00281.png":
+{
+	"frame": {"x":0,"y":0,"w":1920,"h":1088},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1088},
+	"sourceSize": {"w":1920,"h":1088},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "headphone-28.png",
+	"format": "RGBA8888",
+	"size": {"w":1920,"h":1088},
+	"scale": "1",
+	"related_multi_packs": [ "headphone-0.json", "headphone-1.json", "headphone-2.json", "headphone-3.json", "headphone-4.json", "headphone-5.json", "headphone-6.json", "headphone-7.json", "headphone-8.json", "headphone-9.json", "headphone-10.json", "headphone-11.json", "headphone-12.json", "headphone-13.json", "headphone-14.json", "headphone-15.json", "headphone-16.json", "headphone-17.json", "headphone-18.json", "headphone-19.json", "headphone-20.json", "headphone-21.json", "headphone-22.json", "headphone-23.json", "headphone-24.json", "headphone-25.json", "headphone-26.json", "headphone-27.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:4731c75a1fbc4c87c70defed1144aeb7:ba23dc79f16984ed23d0336605fffd90:3524cb0fda5f6fc3d6b1a550674dc8a9$"
+}
+}

@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product</title>
     <script src="https://pixijs.download/release/pixi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="detailsContainer">
-        <div class="detailsButton">
-            <a class="btn" href="./index.html">Go Back</a>
-        </div>
-      <div class="detailsPhoto"></div>
+      <div class="detailsButton">
+        <a class="btn" href="./index.html">Go Back</a>
+      </div>
       <div class="detailsInfoHeadphones">
         <div class="detailsInfo">
           <h1>The headphones of the future.</h1>
@@ -24,7 +25,11 @@
           </p>
         </div>
       </div>
-
+      <div class="detailsPhoto"></div>
+      <div id="proxyTrigger">
+        <div id="target"></div>
+        <div id="proxy"></div>
+      </div>
     </div>
     <footer class="section-footer py-4 bg-primary">
       <div class="container">

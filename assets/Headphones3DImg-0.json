@@ -1,0 +1,22 @@
+{"frames": {
+
+"amir-shaikh-headphones-4k-2.jpg":
+{
+	"frame": {"x":0,"y":0,"w":1920,"h":1920},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1920},
+	"sourceSize": {"w":1920,"h":1920},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "Headphones3DImg-0.png",
+	"format": "RGBA8888",
+	"size": {"w":1920,"h":1920},
+	"scale": "1",
+	"related_multi_packs": [ "Headphones3DImg-1.json", "Headphones3DImg-2.json", "Headphones3DImg-3.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:6e1536b390b783738b4098581dfafc23:6ad8473efba68db784b86b7ada64be90:a867824b15ea988069847d693a3019de$"
+}
+}
